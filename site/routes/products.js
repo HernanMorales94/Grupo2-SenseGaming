@@ -2,10 +2,12 @@ const express = require("express")
 const router = express.Router()
 const productController = require("../controllers/productsController")
 
+const consoleLogMW = require("../middlewares/consoleLogMiddleware")
 
 
-router.get("/", productController.listar)
-router.get("/detalle/:id", productController.detalle)
+
+router.get("/", concoleLogMW, productController.listar)
+router.get("/detalle/:id", consoleLogMW, productController.detalle)
 router.get("/search",productController.search)
 
 module.exports=router
